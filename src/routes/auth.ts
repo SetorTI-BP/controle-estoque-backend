@@ -49,6 +49,7 @@ router.post('/login', async (req, res) => {
 
 // Registrar
 router.post('/registrar', async (req, res) => {
+  console.log('🚀 Body recebido:', req.body);
   try {
     const { nome, email, senha, tipo = 'nutricionista' } = req.body;
 
@@ -85,6 +86,7 @@ router.post('/registrar', async (req, res) => {
     console.error('Erro no registro:', error);
     res.status(500).json({ erro: 'Erro interno do servidor' });
   }
+  console.log('🔑 JWT_SECRET:', process.env.JWT_SECRET);
 });
 
 export default router;
